@@ -1,0 +1,7 @@
+package com.board.dao;
+
+public class Snippet {
+	
+	BoardVO ddd = new BoarVO();
+}
+

@@ -1,0 +1,32 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+
+public class BoardDAO { //연결한 DB 객체 리턴!!
+	
+	Connection conn = null; 
+	Statement stmt = null;
+	ResultSet rs = null;
+	
+	public BoardDAO() {
+		public void DBConnection() {
+			
+		}
+	
+	}// end of BoardDAO();
+	
+	public void closeConnection() throws SQLException{
+		try {
+			
+		} finally {
+			if(conn != null) try {
+				conn.close();
+			} catch(SQLException ex) {
+				
+			}
+		} 
+	}
+}

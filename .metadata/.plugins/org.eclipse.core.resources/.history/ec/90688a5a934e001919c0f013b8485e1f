@@ -1,0 +1,14 @@
+
+public class BoardVO {
+	private String title;
+	private String content;
+	private String regDate;
+	private String modDate;
+	private int content_id;
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+}

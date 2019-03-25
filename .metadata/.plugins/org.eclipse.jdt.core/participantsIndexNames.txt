@@ -1,0 +1,13 @@
+INDEX VERSION 1.131
+C:\Study\Servlet_Board2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2505964779.index
+\Servlet_BBS\src
+D:\Lina Yi\studying\Servlet_BBS\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3098992587.index
+\Servlet_BBS\src
+D:\Lina Yi\studying\Servlet_BBS\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3114622460.index
+\Servlet_BBS\src
+C:\Study\Servlet_Board2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3098992587.index
+\Servlet_BBS\src
+C:\Study\Servlet_Board2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3127853340.index
+\Servlet_BBS\src
+C:\Study\Servlet_Board2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3114622460.index
+\Servlet_BBS\src
