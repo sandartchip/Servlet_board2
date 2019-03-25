@@ -1,24 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="EUC-KR"%>    
+<%@ page import = "java.util.ArrayList"  %>
+<%@ page import = "com.board.vo.BoardVO"  %>
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
 <title>상세 보기 페이지 입니다</title>
 </head>
+
 <%
 	String content_id_str;
-	Integer content_id;
-	content_id_str = request.getParameter("content_id");	
-	content_id = Integer.parseInt(content_id_str);
+	content_id_str = request.getParameter("content_id"); //list.jsp에서 넘어온 값 
 	
 	System.out.println("list에서 content id 값 :" + content_id_str);
-	
-	request.setAttribute("content_id", content_id);
+
+	response.sendRedirect("ViewServlet?content_id="+content_id_str); //주소 왜 이걸로 되지? servlet이 알아서 설정되었다??
+
+	BoardVO vo = (BoardVO) request.getAttribute("board_data");
+	// Servlet->view.jsp 다시 		
 	// 리퀘스트 객체에 파라미터 주고
 %>
-<jsp:forward page="ViewServlet">
-</jsp:forward>
 <body>
 	<h1>상세보기 페이지</h1>
 		
