@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>글 작성 페이지</title>
+</head>
+<body>
+
+<!--  post 방식으로 writeServlet (/write) 로 데이터 넘어감 -->
+<form action="/Servlet_BBS/write" method="post" onsubmit="return formCheck();">
+
+	제목: <input type="text" name="title">
+	내용: <input type="text" name="content" style="height:100px">
+	
+	<input type="submit" value="저장" />	
+</form>
+<script>
+
+</script>
+
+</body>
+</html>

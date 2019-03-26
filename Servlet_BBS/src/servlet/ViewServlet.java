@@ -22,7 +22,7 @@ import com.board.vo.BoardVO;
 /**
  * Servlet implementation class ViewServlet
  */
-@WebServlet("/ViewServlet")
+//@WebServlet("/ViewServlet")
 public class ViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -38,13 +38,14 @@ public class ViewServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		
-		System.out.println("---view servlet---");
+		
 		String content_id_str = request.getParameter("content_id");
+		
 		int content_id;
 		
-		System.out.println("---넘어온 content id 값 확인 : ---"+content_id_str);
+		System.out.println("---view servlet---");
+		System.out.println("---View로 넘어온 content id 값 확인 : ---"+content_id_str);
 		content_id = Integer.parseInt(content_id_str);
 		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -60,33 +61,47 @@ public class ViewServlet extends HttpServlet {
 		conn = new_board_dao.DBConnection();
 		System.out.println("---------View SERVLET --------------");
 		
-		String detail_view_sql = "SELECT * FROM board_table WHERE content_id =" + content_id_str;
+		String detail_view_sql = "SELECT * FROM board_table WHERE content_id =" + content_id_str;			
+		String title="", content="", regDate="", modDate="";
+		
 		
 		try {
-			String title="", content="", regDate="", modDate="";
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(detail_view_sql);
 			
 			while(rs.next()){ //해당 게시물 가져 오기
 				int i=1;	
-				title = rs.getString(i++);
-				content = rs.getString(i++);
+				title = rs.getString("title");
+				content = rs.getString("content");
 				regDate = rs.getString(i++);
 				modDate = rs.getString(i++);
 			}
 			BoardVO vo = new BoardVO();
 			vo.setTitle(title);
+			vo.setContent(content);
+			vo.setRegDate(regDate);
+			vo.setContent_id(content_id);			
 			
-			request.setAttribute("board_data", vo);				
+			request.setAttribute("board_data", vo);	
+			//VO객체를 board_data라는 이름으로 view.jsp로 넘겨줌.
 			
 			//RequestDispatcher rd = context.getRequestDispatcher("/view/list.jsp");
 			//프로젝트 경로 + list.jsp (WebContent 안에 있는건 함)
+			
 			ServletContext context = getServletContext(); //프로젝트 경로
 			System.out.println("ServletContext = " + context);
 			RequestDispatcher rd = context.getRequestDispatcher("/view.jsp");
-			rd.forward(request, response);	
+			rd.forward(request, response);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			new_board_dao.closeConnection();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}		
+		}
 	}
 
 	/**

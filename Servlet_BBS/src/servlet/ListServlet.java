@@ -23,7 +23,7 @@ import com.board.vo.BoardVO;
 /**
  * Servlet implementation class TestServlet
  */
-@WebServlet("/list")
+//@WebServlet("/listServlet")->web.xml에서.
 public class ListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	ArrayList<BoardVO> vo_list;
@@ -92,6 +92,14 @@ public class ListServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		//데이터 다 가져온 뒤에 DB 연결 끊기
+		try {
+			//DB에서 데이터 가져온 뒤 DB와 연결 해제
+			new_board_dao.closeConnection();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+		}
+		
 		//new_board_dao.getConnection();
 		System.out.println("DB로 고고씽22");
 		
@@ -109,7 +117,7 @@ public class ListServlet extends HttpServlet {
 		//RequestDispatcher rd = context.getRequestDispatcher("/view/list.jsp");
 		//프로젝트 경로 + list.jsp (WebContent 안에 있는건 함)
 		RequestDispatcher rd = context.getRequestDispatcher("/list.jsp");
-		rd.forward(request, response);		
+		rd.forward(request, response);	
 	}
 
 	/**

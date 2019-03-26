@@ -9,5 +9,7 @@ C:\Study\Servlet_Board2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\30
 \Servlet_BBS\src
 C:\Study\Servlet_Board2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3127853340.index
 \Servlet_BBS\src
+C:\Study\Servlet_Board2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3058344669.index
+\Servlet_BBS\src
 C:\Study\Servlet_Board2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3114622460.index
 \Servlet_BBS\src

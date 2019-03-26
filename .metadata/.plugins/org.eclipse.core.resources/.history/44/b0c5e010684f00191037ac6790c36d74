@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>    
+<%@ page import = "java.util.ArrayList"  %>
+<%@ page import = "com.board.vo.BoardVO"  %>
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>상세 보기 페이지 입니다</title>
+</head>
+
+<%	
+
+	BoardVO vo = (BoardVO) request.getAttribute("board_data");	
+	
+	String data_title = vo.getTitle();
+	String data_reg_date = vo.getRegDate();
+	String data_mod_date = vo.getModDate();
+	String data_content = vo.getContent();
+	System.out.println(data_title);
+
+	//request 스코프에 BoardVO값이 유지
+%>
+<body>
+	<h1>상세보기 페이지</h1>
+		
+	<table>
+		<tr>
+			<td>글 제목</td>
+			<td><% data_title %></td>
+		</tr>
+		<tr>
+			<td>글 내용</td>
+			<td>data_content </td>
+		</tr>
+		<tr>
+			<td>등록 일자</td>
+			<td>data_reg_date</td>
+		</tr>
+		<tr>
+			<td>수정 일자</td>
+			<td>data_mod_date</td>
+		</tr>
+	</table>
+
+</body>
+</html>

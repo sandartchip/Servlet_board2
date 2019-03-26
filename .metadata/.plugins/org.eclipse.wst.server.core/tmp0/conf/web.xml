@@ -4683,7 +4683,9 @@
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.htm</welcome-file>
         <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list> 
+    </welcome-file-list>
+
+     
     <servlet>
     	<servlet-name>List</servlet-name>
     	<servlet-class>servlet.ListServlet</servlet-class>
@@ -4692,6 +4694,7 @@
     	<servlet-name>List</servlet-name>
     	<url-pattern>/list</url-pattern>
     </servlet-mapping>
+    
     
     <servlet>
     	<servlet-name>View</servlet-name>
@@ -4702,5 +4705,33 @@
     	<url-pattern>/view</url-pattern>
     </servlet-mapping>
     
+    
+    <servlet>
+    	<servlet-name>Delete</servlet-name>
+    	<servlet-class>servlet.DeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    	<servlet-name>Delete</servlet-name>
+    	<url-pattern>/delete</url-pattern>
+    </servlet-mapping>    
+     
+         
+    <servlet>
+    	<servlet-name>Write</servlet-name>
+    	<servlet-class>servlet.WriteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    	<servlet-name>Write</servlet-name>
+    	<url-pattern>/write</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+    	<servlet-name>Modify</servlet-name>
+    	<servlet-class>servlet.ModifyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    	<servlet-name>Modify</servlet-name>
+    	<url-pattern>/modify</url-pattern>
+    </servlet-mapping>
     
 </web-app>

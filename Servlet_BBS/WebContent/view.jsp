@@ -1,48 +1,60 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>    
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page import = "java.util.ArrayList"  %>
 <%@ page import = "com.board.vo.BoardVO"  %>
 <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>»ó¼¼ º¸±â ÆäÀÌÁö ÀÔ´Ï´Ù</title>
+<meta charset="UTF-8">
+<title>ìƒì„¸ ë³´ê¸° í˜ì´ì§€ ì…ë‹ˆë‹¤</title>
 </head>
 
 <%
-	String content_id_str;
-	content_id_str = request.getParameter("content_id"); //list.jsp¿¡¼­ ³Ñ¾î¿Â °ª 
+	request.setCharacterEncoding("UTF-8");
+	BoardVO vo = (BoardVO) request.getAttribute("board_data");	
 	
-	System.out.println("list¿¡¼­ content id °ª :" + content_id_str);
+	int content_id = vo.getContent_id();
+	String data_title = vo.getTitle();
+	String data_reg_date = vo.getRegDate();
+	String data_mod_date = vo.getModDate();
+	String data_content = vo.getContent();
+	System.out.println(data_title);
 
-	response.sendRedirect("ViewServlet?content_id="+content_id_str); //ÁÖ¼Ò ¿Ö ÀÌ°É·Î µÇÁö? servletÀÌ ¾Ë¾Æ¼­ ¼³Á¤µÇ¾ú´Ù??
-
-	BoardVO vo = (BoardVO) request.getAttribute("board_data");
-	// Servlet->view.jsp ´Ù½Ã 		
-	// ¸®Äù½ºÆ® °´Ã¼¿¡ ÆÄ¶ó¹ÌÅÍ ÁÖ°í
+	//request ìŠ¤ì½”í”„ì— BoardVOê°’ì´ ìœ ì§€
 %>
+<script language="javascript">
+	function moveToDeletePage(content_id) {
+		console.log("ì‚­ì œ í˜ì´ì§€ë¡œ ì´ë™"+content_id);
+		location.href="/Servlet_BBS/delete?content_id="+content_id;
+	}
+	
+	function moveToModifyPage(content_id){
+		location.href="/Servlet_BBS/modify?content_id="+content_id;	
+	}
+</script>
 <body>
-	<h1>»ó¼¼º¸±â ÆäÀÌÁö</h1>
+	<h1>ìƒì„¸ë³´ê¸° í˜ì´ì§€</h1>
 		
 	<table>
 		<tr>
-			<td>±Û ¹øÈ£</td>
-			<td></td>
+			<td>ê¸€ ì œëª©</td>
+			<td><%=data_title %></td>
 		</tr>
 		<tr>
-			<td>±Û ³»¿ë</td>
-			<td></td>
+			<td>ê¸€ ë‚´ìš©</td>
+			<td><%= data_content %> </td>
 		</tr>
 		<tr>
-			<td>µî·Ï ÀÏÀÚ</td>
-			<td></td>
+			<td>ë“±ë¡ ì¼ì</td>
+			<td><%= data_reg_date %></td>
 		</tr>
 		<tr>
-			<td>¼öÁ¤ ÀÏÀÚ</td>
-			<td></td>
+			<td>ìˆ˜ì • ì¼ì</td>
+			<td><%= data_mod_date %></td>
 		</tr>
 	</table>
-
+	<button type="button" value="DELETE BUTTON" onclick ="javascript:moveToDeletePage(<%=content_id%>)">
+	</button>
+	<a href="/Servlet_BBS/modify?content_id=<%=content_id%>"> MODIFY</a>
 </body>
 </html>
